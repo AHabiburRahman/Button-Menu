@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>Menu Example</title>
+<style>
+    .left-menu {
+       position: absolute;
+       top: 72vh;
+       z-index: 9999;
+    }
+    i {
+       color: #001c40;
+       font-size: 18px;
+    }
+    .menu i:hover {
+       font-size: 25px;
+    }
+    ul#menuItems {
+       list-style: none;
+       padding: 0;
+       margin: 0;
+       display: none;
+    }
+    ul#menuItems a {
+       padding: 8px 16px;
+    }
+    button {
+       padding: 10px;
+       font-size: 16px;
+       background-color: #bccbdb;
+       color: #ffffff;
+       border: none;
+       cursor: pointer;
+       border-top-right-radius: 20px;
+       border-bottom-right-radius: 20px;
+    }
+    .menu {
+       width: max-content;
+       background-color: #e5d8ce;
+       padding: 10px 20px;
+       border-radius: 15px;
+       position: absolute;
+       left:25px;
+       animation: move 3s linear;
+    }
+    .menu .service-img {
+       font-size: 25px;
+       color: #FF671F;
+    }
+    .menu .service-img:hover {
+        font-size: 28px;
+    }
+    @keyframes move {
+      0% {
+        left: -100px;
+      }
+      10% {
+        left: 20px;
+      }
+    }
+    button i {
+      animation: rotate 2s linear infinite;
+    }
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="left-menu">
+        <button id="showMenuButton"><i class="fa-sharp fa-solid fa-gears"></i></button>
+        <ul id="menuItems">
+           <div class="menu">
+                <a href="#"><i class="fa-solid fa-house"></i></a>
+                <a href="#"><i class="fa-solid fa-user"></i></a>  
+                <a href="#"><i class="service-img fa-solid fa-hand-holding-droplet"></i></a>
+                <a href="#"><i class="fa-solid fa-headset"></i></a>
+                <a href="#"><i class="fa-solid fa-info"></i></a>
+           </div>
+        </ul>
+    </div>
+  
+  <script>
+    const showMenuButton = document.getElementById('showMenuButton');
+    const menuItems = document.getElementById('menuItems');
+
+    let isMenuOpen = false;
+
+    showMenuButton.addEventListener('click', () => {
+      if (isMenuOpen) {
+        menuItems.style.display = 'none';
+      } else {
+        menuItems.style.display = 'block';
+      }
+      isMenuOpen = !isMenuOpen;
+    });
+  </script>
+</body>
+</html>
